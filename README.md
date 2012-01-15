@@ -11,6 +11,8 @@ Preview [GitHub Flavored Markdown][ghfm] using the [Marked app][marked] for Mac 
 * [Nokogiri][nokogiri]
 * [Pygments][pygments]
 
+If you have Ruby and Rubygems:
+
 ```bash
 gem install redcarpet --version=1.17.2
 gem install albino nokogiri
@@ -21,7 +23,6 @@ sudo easy_install pygments
 ```bash
 git clone https://github.com/johnmdonahue/git_marked
 ```
-
 In Marked preferences:
 
 1. Behavior > Advanced > Custom Markdown Processor: `/Users/[your path]/git_marked/gfm.rb`
@@ -36,7 +37,7 @@ ln -s /usr/local/bin/pygmentize /usr/bin
 ```
 
 ## What This Adds to Marked
-Strikethru: `~~strikethru~~`
+Strikethru: ~~Woot!~~
 
 Fenced codeblocks with syntax highlighting via [`pygments`][pygments]
 
