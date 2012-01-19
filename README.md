@@ -1,6 +1,6 @@
 # Git Marked
 
-Preview [GitHub Flavored Markdown][ghfm] using the [Marked app][marked] for Mac (_adapted from [alampros/Docter][docter]_).
+Preview [GitHub Flavored Markdown][ghfm] using the [Marked app][marked] for Mac 
 
 ## Requirements:
 
@@ -42,11 +42,12 @@ Strikethru: ~~Woot!~~
 Fenced codeblocks with syntax highlighting via [`pygments`][pygments]
 
 ```ruby
-require 'redcarpet'
-def markdown(text)
-  options = [:fenced_code,:generate_toc,:hard_wrap,:no_intraemphasis,:strikethrough,:gh_blockcode,:autolink,:xhtml,:tables]
-  html = Redcarpet.new(text, *options).to_html 
-  syntax_highlighter(html)
+def syntax_highlighter(html)
+  doc = Nokogiri::HTML(html)
+  doc.search("//pre[@lang]").each do |pre|
+    pre.replace Albino.colorize(pre.text.rstrip, pre[:lang])
+  end
+  doc.to_s
 end
 ```
 
@@ -62,7 +63,9 @@ Tables:
 ## Screenshot
 ![Screenshot][screenshot]
 
+##Credit
 
+Adapted from [alampros/Docter][docter]
 
 [docter]: https://github.com/alampros/Docter
 [ghfm]: http://github.github.com/github-flavored-markdown/ "Github Flavored Markdown"
