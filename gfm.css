@@ -89,6 +89,14 @@ code {
 	border-radius: 3px;
 	font-size: 12px !important;
 }
+pre > code {
+    margin: 0px;
+	padding: 0px;
+	white-space: pre;
+	border: none;
+	background-color: transparent;
+	border-radius: 0;
+}
 a, a code {
 	color: #4183C4;
 	text-decoration:none;
